@@ -82,29 +82,29 @@ DATABASES = {
         },
         'NAME': 'dbtest', 
         'USER': 'postgres', 
-        'PASSWORD': 'Pass',
+        'PASSWORD': 'pass',
         'HOST': 'localhost', 
         'PORT': '5432',
     },
     'proddb': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'OPTIONS' : {
-            'options': '-c search_path=django,users,public'
+            'options': '-c search_path=users,public'
         },
         'NAME': 'prod', 
         'USER': 'postgres', 
-        'PASSWORD': 'Pass',
+        'PASSWORD': 'pass',
         'HOST': 'localhost', 
         'PORT': '5432',
     },
     'testdbse': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'OPTIONS' : {
-            'options': '-c search_path=django,users,public'
+            'options': '-c search_path=users,public'
         },
         'NAME': 'test', 
         'USER': 'postgres', 
-        'PASSWORD': 'Pass',
+        'PASSWORD': 'pass',
         'HOST': 'localhost', 
         'PORT': '5432',
     }

@@ -10,21 +10,21 @@ class DefaultDBRouter:
         """
         If the model is from app1, it suggests querying the app1 database. If the model is from app2, then app2
         """
-        if (model._meta.app_label in self.route_app_labels and model.__class__.__name__ in self.testdefaultdb):
+        if (model._meta.app_label in self.route_app_labels and model.__name__ in self.testdefaultdb):
             return 'default'
         elif model._meta.app_label in self.route_app_labels and model._meta.app_label!='testdb':
             return 'default'
-        return None
+        return False
 
     def db_for_write(self, model, **hints):
         """
         If the model is from app1, it suggests querying the app1 database. If the model is from app2, then app2
         """
-        if (model._meta.app_label in self.route_app_labels and model.__class__.__name__ in self.testdefaultdb):
+        if (model._meta.app_label in self.route_app_labels and model.__name__ in self.testdefaultdb):
             return 'default'
         elif (model._meta.app_label in self.route_app_labels and model._meta.app_label!='testdb'):
             return 'default'
-        return None
+        return False
 
     def allow_relation(self, obj1, obj2, **hints):
         """
@@ -64,17 +64,18 @@ class ProdDBRouter:
         """
         If the model is from app1, it suggests querying the app1 database. If the model is from app2, then app2
         """
-        if model._meta.app_label in self.route_app_labels and model.__class__.__name__ in self.proddb:
+        if model._meta.app_label in self.route_app_labels and model.__name__ in self.proddb:
             return 'proddb'
-        return None
+        return False
 
     def db_for_write(self, model, **hints):
         """
+
         If the model is from app1, it suggests querying the app1 database. If the model is from app2, then app2
         """
-        if model._meta.app_label in self.route_app_labels and model.__class__.__name__ in self.proddb:
+        if model._meta.app_label in self.route_app_labels and model.__name__ in self.proddb:
             return 'proddb'
-        return None
+        return False
 
     def allow_relation(self, obj1, obj2, **hints):
         """
@@ -107,17 +108,17 @@ class TestDBRouter:
         """
         If the model is from app1, it suggests querying the app1 database. If the model is from app2, then app2
         """
-        if model._meta.app_label in self.route_app_labels and model.__class__.__name__ in self.testdab:
+        if model._meta.app_label in self.route_app_labels and model.__name__ in self.testdab:
             return 'testdbse'
-        return None
+        return False
 
     def db_for_write(self, model, **hints):
         """
         If the model is from app1, it suggests querying the app1 database. If the model is from app2, then app2
         """
-        if model._meta.app_label in self.route_app_labels and model.__class__.__name__ in self.testdab:
+        if model._meta.app_label in self.route_app_labels and model.__name__ in self.testdab:
             return 'testdbse'
-        return None
+        return False
 
     def allow_relation(self, obj1, obj2, **hints):
         """

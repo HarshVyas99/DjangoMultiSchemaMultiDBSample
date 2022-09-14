@@ -9,6 +9,7 @@ class Teacher(models.Model):
         db_table='django\".\"teacher'
         
 class Student(models.Model):
+    teacher=models.ForeignKey(Teacher, on_delete=models.CASCADE,default=1)
     name = models.CharField(max_length=80)
     age = models.IntegerField()
     class Meta:
